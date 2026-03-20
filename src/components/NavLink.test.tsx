@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { User } from 'lucide-react'
 import NavLink from './NavLink'
 
 test('renders nav link with correct text and href', () => {
@@ -20,4 +21,14 @@ test('calls onClick when the link is clicked', async () => {
   render(<NavLink href="#about" label="About" isActive={false} onClick={onClick} />)
   await userEvent.click(screen.getByRole('link', { name: 'About' }))
   expect(onClick).toHaveBeenCalledTimes(1)
+})
+
+it('renders an svg icon when icon prop is provided', () => {
+  render(<NavLink href="#about" label="About" isActive={false} icon={User} />)
+  expect(document.querySelector('svg')).toBeInTheDocument()
+})
+
+it('renders no svg when icon prop is omitted', () => {
+  render(<NavLink href="#about" label="About" isActive={false} />)
+  expect(document.querySelector('svg')).not.toBeInTheDocument()
 })

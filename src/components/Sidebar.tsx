@@ -17,6 +17,7 @@ export default function Sidebar({ activeSection, setActiveSection }: Props) {
             key={item.href}
             href={item.href}
             label={item.label}
+            icon={item.icon}
             isActive={activeSection === item.href.slice(1)}
             onClick={() => setActiveSection(item.href.slice(1))}
           />

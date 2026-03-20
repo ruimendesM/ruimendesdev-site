@@ -48,11 +48,12 @@ export default function Drawer({ isOpen, onClose, activeSection, setActiveSectio
         <SidebarProfile />
 
         <nav className="flex flex-col gap-1 flex-1">
-          {NAV_SECTIONS.map(({ href, label }) => (
+          {NAV_SECTIONS.map(({ href, label, icon }) => (
             <NavLink
               key={href}
               href={href}
               label={label}
+              icon={icon}
               isActive={activeSection === href.slice(1)}
               onClick={() => {
                 setActiveSection(href.slice(1))
