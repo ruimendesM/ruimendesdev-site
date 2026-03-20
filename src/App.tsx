@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import About from './components/sections/About'
 import Career from './components/sections/Career'
+import Projects from './components/sections/Projects'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -20,6 +21,7 @@ export default function App() {
       <main className="flex-1 px-10 py-8 max-w-[860px] pt-20 md:pt-8">
         <About />
         <Career />
+        <Projects />
       </main>
     </div>
   )
