@@ -1,12 +1,14 @@
 import SidebarProfile from './SidebarProfile'
 import NavLink from './NavLink'
+import ThemeToggle from './ThemeToggle'
 import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
   activeSection: string;
+  setActiveSection: (id: string) => void;
 }
 
-export default function Sidebar({ activeSection }: Props) {
+export default function Sidebar({ activeSection, setActiveSection }: Props) {
   return (
     <aside className="hidden md:flex w-48 min-w-[12rem] h-screen sticky top-0 bg-slate-900 text-slate-50 p-6 flex-col gap-1 overflow-y-auto">
       <SidebarProfile />
@@ -16,11 +18,14 @@ export default function Sidebar({ activeSection }: Props) {
             key={item.href}
             href={item.href}
             label={item.label}
+            icon={item.icon}
             isActive={activeSection === item.href.slice(1)}
+            onClick={() => setActiveSection(item.href.slice(1))}
           />
         ))}
       </nav>
       <div className="mt-auto pt-4 border-t border-white/10 flex flex-col gap-2">
+        <ThemeToggle />
         <a
           href="https://github.com/ruimendesM"
           target="_blank"

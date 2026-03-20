@@ -1,15 +1,17 @@
 import { useEffect } from 'react'
 import NavLink from './NavLink'
 import SidebarProfile from './SidebarProfile'
+import ThemeToggle from './ThemeToggle'
 import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
   activeSection: string
+  setActiveSection: (id: string) => void
 }
 
-export default function Drawer({ isOpen, onClose, activeSection }: Props) {
+export default function Drawer({ isOpen, onClose, activeSection, setActiveSection }: Props) {
   useEffect(() => {
     if (!isOpen) return
 
@@ -47,35 +49,42 @@ export default function Drawer({ isOpen, onClose, activeSection }: Props) {
         <SidebarProfile />
 
         <nav className="flex flex-col gap-1 flex-1">
-          {NAV_SECTIONS.map(({ href, label }) => (
+          {NAV_SECTIONS.map(({ href, label, icon }) => (
             <NavLink
               key={href}
               href={href}
               label={label}
+              icon={icon}
               isActive={activeSection === href.slice(1)}
-              onClick={onClose}
+              onClick={() => {
+                setActiveSection(href.slice(1))
+                onClose()
+              }}
             />
           ))}
         </nav>
 
         {/* Social links */}
-        <div className="flex gap-4 justify-center pt-4 border-t border-white/10">
-          <a
-            href="https://github.com/ruimendesM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-50 text-sm"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/rui-mendes-2482465b/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-50 text-sm"
-          >
-            LinkedIn
-          </a>
+        <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
+          <ThemeToggle />
+          <div className="flex gap-4 justify-center">
+            <a
+              href="https://github.com/ruimendesM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-50 text-sm"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rui-mendes-2482465b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-50 text-sm"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </>

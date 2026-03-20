@@ -11,12 +11,12 @@ import { useScrollSpy } from './hooks/useScrollSpy'
 const SECTION_IDS = ['about', 'career', 'projects', 'talks', 'contact']
 
 export default function App() {
-  const activeSection = useScrollSpy(SECTION_IDS)
+  const { activeSection, setActiveSection } = useScrollSpy(SECTION_IDS)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar activeSection={activeSection} />
+    <div className="flex min-h-screen w-full bg-slate-50 dark:bg-slate-950">
+      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
       <button
         className="flex md:hidden fixed top-4 left-4 z-[100] bg-slate-900 text-slate-50 w-10 h-10 rounded-lg text-xl cursor-pointer items-center justify-center border-0"
         onClick={() => setDrawerOpen(true)}
@@ -24,8 +24,13 @@ export default function App() {
       >
         ☰
       </button>
-      <Drawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} activeSection={activeSection} />
-      <main className="flex-1 px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
+      <Drawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
+      <main className="w-full mx-auto px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
         <About />
         <Career />
         <Projects />
