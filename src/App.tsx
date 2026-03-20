@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import About from './components/sections/About'
 import Career from './components/sections/Career'
 import Projects from './components/sections/Projects'
+import Talks from './components/sections/Talks'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -22,6 +23,7 @@ export default function App() {
         <About />
         <Career />
         <Projects />
+        <Talks />
       </main>
     </div>
   )
