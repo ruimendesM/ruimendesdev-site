@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Sidebar from './components/Sidebar'
+import Drawer from './components/Drawer'
 import About from './components/sections/About'
 import Career from './components/sections/Career'
 import Projects from './components/sections/Projects'
@@ -20,6 +21,7 @@ export default function App() {
       >
         ☰
       </button>
+      <Drawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} activeSection={activeSection} />
       <main className="flex-1 px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
         <About />
         <Career />
