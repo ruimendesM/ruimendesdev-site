@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import About from './components/sections/About'
+import Career from './components/sections/Career'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -18,6 +19,7 @@ export default function App() {
       </button>
       <main className="flex-1 px-10 py-8 max-w-[860px] pt-20 md:pt-8">
         <About />
+        <Career />
       </main>
     </div>
   )
