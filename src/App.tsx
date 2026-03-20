@@ -4,6 +4,7 @@ import About from './components/sections/About'
 import Career from './components/sections/Career'
 import Projects from './components/sections/Projects'
 import Talks from './components/sections/Talks'
+import Contact from './components/sections/Contact'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -24,6 +25,7 @@ export default function App() {
         <Career />
         <Projects />
         <Talks />
+        <Contact />
       </main>
     </div>
   )
