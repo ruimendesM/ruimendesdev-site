@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# ruimendes.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal website for Rui Mendes — a single-page site covering About, Career, Projects, Talks, and Contact.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Concern | Choice |
+|---|---|
+| Framework | React 19 |
+| Language | TypeScript |
+| Build tool | Vite 8 |
+| Styling | Tailwind CSS v4 |
+| Testing | Vitest 4 + React Testing Library |
 
-## React Compiler
+## Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Single-page app with anchor-based navigation and no client-side router. All content is hardcoded in `src/data/` — no CMS, no API (except the GitHub avatar).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  components/
+    Sidebar.tsx          # Fixed left sidebar (desktop ≥768px)
+    Drawer.tsx           # Slide-in navigation drawer (mobile <768px)
+    SidebarProfile.tsx   # Shared: avatar + name + title
+    NavLink.tsx          # Shared nav link used by Sidebar and Drawer
+    sections/
+      About.tsx
+      Career.tsx / CareerItem.tsx
+      Projects.tsx / ProjectCard.tsx
+      Talks.tsx / TalkCard.tsx
+      Contact.tsx
+  hooks/
+    useScrollSpy.ts      # IntersectionObserver-based active section tracking
+  data/
+    career.ts            # Career timeline entries
+    projects.ts          # Project cards
+    talks.ts             # Conference talk entries
+    navigation.ts        # Shared nav section list
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Layout:** fixed sidebar on the left (desktop), hamburger + slide-in drawer on mobile. The active nav link updates automatically as you scroll via `IntersectionObserver`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Styling:** Tailwind CSS v4 utility classes in JSX only — no separate CSS files, no `tailwind.config.js`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Development
+
+```bash
+npm install
+npm run dev      # Start dev server at localhost:5173
+npm test         # Run tests
+npm run build    # Production build → dist/
 ```
+
+## Deployment
+
+Built as a static site (`dist/`). Served via Nginx on a Hetzner VPS. Deployments are automated via GitHub Actions on push to `main`.
