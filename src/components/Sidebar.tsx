@@ -1,5 +1,6 @@
 import SidebarProfile from './SidebarProfile'
 import NavLink from './NavLink'
+import ThemeToggle from './ThemeToggle'
 import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
@@ -24,6 +25,7 @@ export default function Sidebar({ activeSection, setActiveSection }: Props) {
         ))}
       </nav>
       <div className="mt-auto pt-4 border-t border-white/10 flex flex-col gap-2">
+        <ThemeToggle />
         <a
           href="https://github.com/ruimendesM"
           target="_blank"

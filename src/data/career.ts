@@ -3,6 +3,7 @@ export interface CareerEntry {
   company: string;
   dateRange: string; // Format: "Mon YYYY – Mon YYYY" or "Mon YYYY – Present"
   summary: string;
+  logoUrl?: string;
 }
 
 export const career: CareerEntry[] = [

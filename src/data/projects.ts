@@ -9,6 +9,8 @@ export interface Project {
   tags: string[];
   wip?: boolean;
   links?: ProjectLink[];
+  icon?: string;
+  techStack?: { name: string; variant: string }[];
 }
 
 export const projects: Project[] = [
