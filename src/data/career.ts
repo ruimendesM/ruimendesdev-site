@@ -37,13 +37,13 @@ export const career: CareerEntry[] = [
     summary: 'Implemented mobile banking solutions for African and European banks. Worked on-site in Warsaw for Bank Millennium. Architected an Android app skeleton for future banking products.',
   },
   {
-    title: 'Research & Development Engineer',
+    title: 'R&D Engineer',
     company: 'INESC Porto — Project MACAW',
     dateRange: 'May 2011 – Jun 2013',
     summary: 'Extended the CALLAS programming language for Wireless Sensor Networks configuration. Built a desktop application for translating visual configurations into CALLAS.',
   },
   {
-    title: 'Research & Development Engineer',
+    title: 'R&D Engineer',
     company: 'INESC Porto — Project CALLAS',
     dateRange: 'Jun 2010 – Apr 2011',
     summary: 'Implemented new features and improved virtual machine performance for the CALLAS programming language, designed for Wireless Sensor Networks.',
