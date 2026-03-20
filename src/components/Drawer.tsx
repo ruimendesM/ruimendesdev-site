@@ -1,20 +1,13 @@
 import { useEffect } from 'react'
 import NavLink from './NavLink'
 import SidebarProfile from './SidebarProfile'
+import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
   activeSection: string
 }
-
-const NAV_SECTIONS = [
-  { href: '#about', label: 'About' },
-  { href: '#career', label: 'Career' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#talks', label: 'Talks' },
-  { href: '#contact', label: 'Contact' },
-]
 
 export default function Drawer({ isOpen, onClose, activeSection }: Props) {
   useEffect(() => {

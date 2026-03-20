@@ -1,13 +1,6 @@
 import SidebarProfile from './SidebarProfile'
 import NavLink from './NavLink'
-
-const NAV_ITEMS = [
-  { href: '#about', label: 'About' },
-  { href: '#career', label: 'Career' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#talks', label: 'Talks' },
-  { href: '#contact', label: 'Contact' },
-]
+import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
   activeSection: string;
@@ -18,13 +11,12 @@ export default function Sidebar({ activeSection }: Props) {
     <aside className="hidden md:flex w-48 min-w-[12rem] h-screen sticky top-0 bg-slate-900 text-slate-50 p-6 flex-col gap-1 overflow-y-auto">
       <SidebarProfile />
       <nav className="flex flex-col gap-0.5">
-        {NAV_ITEMS.map((item) => (
+        {NAV_SECTIONS.map((item) => (
           <NavLink
             key={item.href}
             href={item.href}
             label={item.label}
             isActive={activeSection === item.href.slice(1)}
-            onClick={() => {}}
           />
         ))}
       </nav>

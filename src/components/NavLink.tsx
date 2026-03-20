@@ -2,10 +2,10 @@ interface Props {
   href: string;
   label: string;
   isActive: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-export default function NavLink({ href, label, isActive, onClick }: Props) {
+export default function NavLink({ href, label, isActive, onClick = () => {} }: Props) {
   return (
     <a
       href={href}
