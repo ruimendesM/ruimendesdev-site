@@ -15,7 +15,7 @@ describe('Drawer', () => {
   it('calls onClose when backdrop is clicked', async () => {
     const onClose = vi.fn()
     render(<Drawer isOpen={true} onClose={onClose} activeSection="about" />)
-    const backdrop = screen.getByLabelText('Close menu')
+    const backdrop = screen.getByTestId('drawer-backdrop')
     await userEvent.click(backdrop)
     expect(onClose).toHaveBeenCalled()
   })
@@ -24,5 +24,12 @@ describe('Drawer', () => {
     render(<Drawer isOpen={true} onClose={vi.fn()} activeSection="projects" />)
     const projectsLink = screen.getByText('Projects')
     expect(projectsLink).toHaveClass('font-semibold')
+  })
+
+  it('Escape key closes drawer', () => {
+    const onClose = vi.fn()
+    render(<Drawer isOpen={true} onClose={onClose} activeSection="about" />)
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))
+    expect(onClose).toHaveBeenCalled()
   })
 })

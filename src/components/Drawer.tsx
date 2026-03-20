@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import NavLink from './NavLink'
 import SidebarProfile from './SidebarProfile'
 
@@ -16,13 +17,29 @@ const NAV_SECTIONS = [
 ]
 
 export default function Drawer({ isOpen, onClose, activeSection }: Props) {
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, onClose])
+
   return (
     <>
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[200] bg-black/50 ${isOpen ? 'block' : 'hidden'}`}
         onClick={onClose}
-        aria-label="Close menu"
+        aria-hidden="true"
+        data-testid="drawer-backdrop"
       />
 
       {/* Slide-in panel */}
@@ -30,6 +47,9 @@ export default function Drawer({ isOpen, onClose, activeSection }: Props) {
         className={`fixed top-0 left-0 z-[300] h-full w-56 bg-slate-900 flex flex-col p-4 transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
       >
         <SidebarProfile />
 
