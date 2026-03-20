@@ -78,7 +78,7 @@ export const projects: Project[] = [
     name: 'CashYT App',
     description:
       'B2C app built from scratch featuring a trivia game, MQTT-based real-time chat, and augmented reality using Vuforia SDK.',
-    tags: ['Kotlin', 'Android', 'RxJava', 'MQTT', 'AR'],
+    tags: ['Kotlin', 'Android', 'Firebase', 'RxJava', 'MQTT', 'AR'],
     icon: birdyBytesIcon,
     techStack: [
       { name: 'kotlin', variant: 'original' },
