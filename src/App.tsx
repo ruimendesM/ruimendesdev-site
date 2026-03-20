@@ -15,7 +15,7 @@ export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen w-full bg-slate-50 dark:bg-slate-950">
       <Sidebar activeSection={activeSection} />
       <button
         className="flex md:hidden fixed top-4 left-4 z-[100] bg-slate-900 text-slate-50 w-10 h-10 rounded-lg text-xl cursor-pointer items-center justify-center border-0"
@@ -25,7 +25,7 @@ export default function App() {
         ☰
       </button>
       <Drawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} activeSection={activeSection} />
-      <main className="flex-1 px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
+      <main className="w-full mx-auto px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
         <About />
         <Career />
         <Projects />
