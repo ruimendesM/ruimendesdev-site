@@ -7,9 +7,10 @@ interface Props {
   isOpen: boolean
   onClose: () => void
   activeSection: string
+  setActiveSection: (id: string) => void
 }
 
-export default function Drawer({ isOpen, onClose, activeSection }: Props) {
+export default function Drawer({ isOpen, onClose, activeSection, setActiveSection }: Props) {
   useEffect(() => {
     if (!isOpen) return
 
@@ -53,7 +54,10 @@ export default function Drawer({ isOpen, onClose, activeSection }: Props) {
               href={href}
               label={label}
               isActive={activeSection === href.slice(1)}
-              onClick={onClose}
+              onClick={() => {
+                setActiveSection(href.slice(1))
+                onClose()
+              }}
             />
           ))}
         </nav>

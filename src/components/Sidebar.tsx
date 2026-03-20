@@ -4,9 +4,10 @@ import { NAV_SECTIONS } from '../data/navigation'
 
 interface Props {
   activeSection: string;
+  setActiveSection: (id: string) => void;
 }
 
-export default function Sidebar({ activeSection }: Props) {
+export default function Sidebar({ activeSection, setActiveSection }: Props) {
   return (
     <aside className="hidden md:flex w-48 min-w-[12rem] h-screen sticky top-0 bg-slate-900 text-slate-50 p-6 flex-col gap-1 overflow-y-auto">
       <SidebarProfile />
@@ -17,6 +18,7 @@ export default function Sidebar({ activeSection }: Props) {
             href={item.href}
             label={item.label}
             isActive={activeSection === item.href.slice(1)}
+            onClick={() => setActiveSection(item.href.slice(1))}
           />
         ))}
       </nav>
