@@ -1,4 +1,4 @@
-import { Talk } from '../../data/talks'
+import type { Talk } from '../../data/talks'
 
 interface Props {
   talk: Talk;

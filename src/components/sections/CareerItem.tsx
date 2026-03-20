@@ -1,4 +1,4 @@
-import { CareerEntry } from '../../data/career'
+import type { CareerEntry } from '../../data/career'
 
 interface Props {
   entry: CareerEntry;
