@@ -6,9 +6,12 @@ import Career from './components/sections/Career'
 import Projects from './components/sections/Projects'
 import Talks from './components/sections/Talks'
 import Contact from './components/sections/Contact'
+import { useScrollSpy } from './hooks/useScrollSpy'
+
+const SECTION_IDS = ['about', 'career', 'projects', 'talks', 'contact']
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('about')
+  const activeSection = useScrollSpy(SECTION_IDS)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
