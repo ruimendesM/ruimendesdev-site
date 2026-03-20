@@ -6,9 +6,9 @@ interface Props {
 
 export default function TalkCard({ talk }: Props) {
   return (
-    <div className="flex items-center justify-between gap-4 p-5 border border-slate-200 rounded-xl bg-white">
+    <div className="flex items-center justify-between gap-4 p-5 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
       <div className="flex-1">
-        <h3 className="text-base font-bold text-slate-900">{talk.title}</h3>
+        <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">{talk.title}</h3>
         <p className="text-xs text-slate-400 mt-0.5">{talk.event} · {talk.date}</p>
       </div>
       <a

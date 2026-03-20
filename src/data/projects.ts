@@ -41,9 +41,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'Busbud Android App',
+    name: 'Busbud',
     description:
-      'Built from scratch as the sole Android engineer. Reached 1k+ bus tickets sold per day. Includes CI/CD, full test coverage, and whitelabel support.',
+      'Built from scratch. Reached 1k+ bus tickets sold per day. Includes CI/CD, full test coverage, and whitelabel support.',
     tags: ['Kotlin', 'Android', 'Jetpack Compose', 'CI/CD'],
     icon: busbudIcon,
     techStack: [
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'Hostelworld Android App',
+    name: 'Hostelworld',
     description:
       'Managed the Android and iOS apps. Led architecture improvements for testability and separation of concerns.',
     tags: ['Kotlin', 'Android', 'iOS'],
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: 'CashYT App',
+    name: 'Birdy Bytes',
     description:
       'B2C app built from scratch featuring a trivia game, MQTT-based real-time chat, and augmented reality using Vuforia SDK.',
     tags: ['Kotlin', 'Android', 'Firebase', 'RxJava', 'MQTT', 'AR'],
