@@ -1,4 +1,4 @@
-name: Deploy ruimendes.dev
+name: Deploy ruimendesdev.eu
 
 on:
   push:
@@ -39,4 +39,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          rsync -avz --delete dist/ admin@46.224.17.117:/var/www/ruimendes.dev/
+          rsync -avz --delete dist/ admin@46.224.17.117:/var/www/ruimendesdev.eu/
