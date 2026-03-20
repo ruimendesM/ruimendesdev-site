@@ -20,7 +20,7 @@ export default function App() {
       >
         ☰
       </button>
-      <main className="flex-1 px-10 py-8 max-w-[860px] pt-20 md:pt-8">
+      <main className="flex-1 px-10 pb-8 pt-20 md:pt-8 max-w-[860px]">
         <About />
         <Career />
         <Projects />
