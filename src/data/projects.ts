@@ -43,8 +43,8 @@ export const projects: Project[] = [
   {
     name: 'Busbud',
     description:
-      'Built from scratch. Reached 1k+ bus tickets sold per day. Includes CI/CD, full test coverage, and whitelabel support.',
-    tags: ['Kotlin', 'Android', 'Jetpack Compose', 'CI/CD'],
+      'E-commerce app to allow users to book ground transportation tickets. 1k+ bus tickets sold per day. Includes whitelabel support.',
+    tags: ['Kotlin', 'Android', 'Jetpack Compose'],
     icon: busbudIcon,
     techStack: [
       { name: 'kotlin', variant: 'original' },
@@ -60,8 +60,8 @@ export const projects: Project[] = [
   {
     name: 'Hostelworld',
     description:
-      'Managed the Android and iOS apps. Led architecture improvements for testability and separation of concerns.',
-    tags: ['Kotlin', 'Android', 'iOS'],
+      'OTA to app to allow users to book hostels worldwide. Led the Android project to a Kotlin-first codebase and implemented architecture improvements for testability.',
+    tags: ['Kotlin', 'Android'],
     icon: hostelworldIcon,
     techStack: [
       { name: 'kotlin', variant: 'original' },
@@ -78,10 +78,10 @@ export const projects: Project[] = [
     name: 'Birdy Bytes',
     description:
       'B2C app built from scratch featuring a trivia game, MQTT-based real-time chat, and augmented reality using Vuforia SDK.',
-    tags: ['Kotlin', 'Android', 'Firebase', 'RxJava', 'MQTT', 'AR'],
+    tags: ['Java', 'Android', 'Firebase', 'MQTT', 'AR'],
     icon: birdyBytesIcon,
     techStack: [
-      { name: 'kotlin', variant: 'original' },
+      { name: 'java', variant: 'plain' },
       { name: 'android', variant: 'plain' },
       { name: 'firebase', variant: 'plain' },
     ],
@@ -96,10 +96,10 @@ export const projects: Project[] = [
     name: 'WeMote',
     description:
       'Remote control Android app for WeTek set-top boxes, backed by a Node.js REST API. Integrated Google Assistant and Amazon Alexa voice commands.',
-    tags: ['Kotlin', 'Android', 'Node.js', 'REST API'],
+    tags: ['Java', 'Android', 'Node.js', 'REST API'],
     // No icon — ProjectCard renders gradient placeholder
     techStack: [
-      { name: 'kotlin', variant: 'original' },
+      { name: 'java', variant: 'plain' },
       { name: 'android', variant: 'plain' },
       { name: 'nodejs', variant: 'original' },
     ],

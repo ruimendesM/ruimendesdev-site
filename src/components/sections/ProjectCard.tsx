@@ -11,6 +11,7 @@ const TAG_COLOURS: Record<string, string> = {
   Android:        'bg-green-100 text-green-700 border-green-200 dark:bg-green-400/15 dark:text-green-400 dark:border-green-400/30',
   Kotlin:         'bg-violet-100 text-violet-700 border-violet-200 dark:bg-violet-400/15 dark:text-violet-400 dark:border-violet-400/30',
   Firebase:       'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-400/15 dark:text-orange-400 dark:border-orange-400/30',
+  Java:           'bg-red-100 text-red-700 border-red-200 dark:bg-red-400/15 dark:text-red-400 dark:border-red-400/30',
   'React Native': 'bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-400 dark:border-sky-400/30',
   React:          'bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-400 dark:border-sky-400/30',
 }

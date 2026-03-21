@@ -1,6 +1,6 @@
 # ruimendes.dev
 
-Personal website for Rui Mendes — a single-page site covering About, Career, Projects, Talks, and Contact.
+Personal website.
 
 ## Stack
 
