@@ -9,7 +9,7 @@ test('renders section with id "projects"', () => {
 test('renders all project names', () => {
   render(<Projects />)
   expect(screen.getByText('AskMe')).toBeInTheDocument()
-  expect(screen.getByText('Busbud Android App')).toBeInTheDocument()
+  expect(screen.getByText('Busbud')).toBeInTheDocument()
   expect(screen.getByText('WeMote')).toBeInTheDocument()
 })
 
