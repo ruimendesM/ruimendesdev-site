@@ -60,4 +60,12 @@ describe('contact modal', () => {
     await userEvent.click(screen.getByRole('button', { name: /close dialog/i }))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
+
+  it('calls vm.reset when the modal is opened', async () => {
+    const vm = buildViewModel()
+    vi.spyOn(viewModelModule, 'default').mockReturnValue(vm)
+    render(<Contact />)
+    await userEvent.click(screen.getByRole('button', { name: /send me a message/i }))
+    expect(vm.reset).toHaveBeenCalledTimes(1)
+  })
 })

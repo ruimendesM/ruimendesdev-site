@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import ContactForm from './ContactForm'
 import useContactFormViewModel from '../../hooks/useContactFormViewModel'
@@ -6,6 +6,7 @@ import useContactFormViewModel from '../../hooks/useContactFormViewModel'
 export default function Contact() {
   const [isOpen, setIsOpen] = useState(false)
   const vm = useContactFormViewModel()
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   function openModal() {
     vm.reset()
@@ -24,6 +25,10 @@ export default function Contact() {
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) dialogRef.current?.focus()
   }, [isOpen])
 
   return (
@@ -48,6 +53,8 @@ export default function Contact() {
           GitHub
         </a>
         <button
+          type="button"
+          aria-haspopup="dialog"
           onClick={openModal}
           className="text-sm text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
@@ -63,10 +70,12 @@ export default function Contact() {
           onClick={closeModal}
         >
           <div
+            ref={dialogRef}
+            tabIndex={-1}
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            className="relative w-full max-w-md rounded-xl bg-white dark:bg-slate-900 shadow-xl p-6"
+            className="relative w-full max-w-md rounded-xl bg-white dark:bg-slate-900 shadow-xl p-6 focus:outline-none"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
