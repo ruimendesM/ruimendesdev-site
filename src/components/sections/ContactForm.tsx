@@ -50,6 +50,7 @@ export default function ContactForm({ vm, onClose }: Props) {
           placeholder="you@example.com"
           disabled={status === 'loading'}
           aria-describedby={errors.email ? 'contact-email-error' : undefined}
+          aria-invalid={errors.email ? true : undefined}
           className={`rounded-lg border px-3 py-2 text-sm bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-colors ${
             errors.email
               ? 'border-red-400 dark:border-red-500'
@@ -79,6 +80,7 @@ export default function ContactForm({ vm, onClose }: Props) {
           rows={5}
           disabled={status === 'loading'}
           aria-describedby={errors.content ? 'contact-content-error' : undefined}
+          aria-invalid={errors.content ? true : undefined}
           className={`rounded-lg border px-3 py-2 text-sm bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none transition-colors ${
             errors.content
               ? 'border-red-400 dark:border-red-500'
@@ -94,7 +96,7 @@ export default function ContactForm({ vm, onClose }: Props) {
             <span />
           )}
           <span
-            className={`text-xs ml-auto tabular-nums ${
+            className={`text-xs tabular-nums ${
               charCount > maxChars
                 ? 'text-red-500 dark:text-red-400'
                 : 'text-slate-400 dark:text-slate-500'

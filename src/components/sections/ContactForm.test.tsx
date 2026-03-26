@@ -79,6 +79,11 @@ describe('loading state', () => {
     render(<ContactForm vm={buildViewModel({ status: 'loading' })} onClose={() => {}} />)
     expect(screen.getByRole('button', { name: /send/i })).toBeDisabled()
   })
+
+  it('disables the cancel button while loading', () => {
+    render(<ContactForm vm={buildViewModel({ status: 'loading' })} onClose={() => {}} />)
+    expect(screen.getByRole('button', { name: /cancel/i })).toBeDisabled()
+  })
 })
 
 // ─── Success state ────────────────────────────────────────────────────────────
