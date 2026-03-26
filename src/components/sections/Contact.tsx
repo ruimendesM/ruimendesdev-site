@@ -87,6 +87,7 @@ export default function Contact() {
                 Send me a message
               </h3>
               <button
+                type="button"
                 onClick={closeModal}
                 aria-label="Close dialog"
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
