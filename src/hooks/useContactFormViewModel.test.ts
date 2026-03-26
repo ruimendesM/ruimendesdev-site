@@ -198,4 +198,18 @@ describe('API submission', () => {
       })
     )
   })
+
+  it('clears previous validation errors on a successful submission', async () => {
+    fetchSpy.mockResolvedValue(new Response(null, { status: 200 }))
+    const { result } = setup()
+    // First submit with invalid data to populate errors
+    act(() => result.current.handlers.onSubmit())
+    expect(result.current.errors.email).toBeDefined()
+    // Fix the data and resubmit
+    act(() => result.current.handlers.onEmailChange('user@example.com'))
+    act(() => result.current.handlers.onContentChange('Fixed message.'))
+    await act(() => result.current.handlers.onSubmit())
+    expect(result.current.errors.email).toBeUndefined()
+    expect(result.current.errors.content).toBeUndefined()
+  })
 })
